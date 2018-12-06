@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: servicegraph-ext
+  namespace: istio-system
+  annotations:
+  labels:
+    app: istio-servicegraph-ext
+spec:
+  type: NodePort
+  ports:
+    - port: 8088
+      targetPort: 8088
+      protocol: TCP
+      name: http
+  selector:
+    app: servicegraph

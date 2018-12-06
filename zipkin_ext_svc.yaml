@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: zipkin-ext
+  namespace: istio-system
+  annotations:
+  labels:
+    app: istio-zipkin-ext
+spec:
+  type: NodePort
+  ports:
+    - port: 9411
+      targetPort: 9411
+      protocol: TCP
+      name: http
+  selector:
+    app: zipkin
